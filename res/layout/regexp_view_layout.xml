@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical">
+<TextView 
+	android:text="Туту" 
+	android:id="@+id/TextView01" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+</TextView>
+<EditText 
+	android:text="" 
+	android:id="@+id/RegexpTutuEditText" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+</EditText>
+<TextView 
+	android:text="Яндекс" 
+	android:id="@+id/TextView02" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+</TextView>
+<EditText 
+	android:text="" 
+	android:id="@+id/RegexpYandexEditText" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+</EditText>
+<Button 
+	android:text="Сохранить" 
+	android:id="@+id/RegexpViewSaveButton" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content" 
+	android:layout_gravity="center">
+</Button>
+</LinearLayout>

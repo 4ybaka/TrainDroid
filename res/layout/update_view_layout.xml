@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical"
+  >
+  <ScrollView
+  	android:id="@+id/ScrollView01"
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent">
+  <LinearLayout
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"
+  	android:orientation="vertical">
+<TextView 
+	android:text="Станция отправления" 
+	android:id="@+id/TextView01" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+</TextView>
+<AutoCompleteTextView 
+	android:text="" 
+	android:id="@+id/AutoCompleteTextStationFrom" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+</AutoCompleteTextView>
+<TextView 
+	android:text="Станция назначения" 
+	android:id="@+id/TextView02" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+</TextView>
+<AutoCompleteTextView 
+	android:text="" 
+	android:id="@+id/AutoCompleteTextStationTo" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+</AutoCompleteTextView>
+<CheckBox 
+	android:text="В обе стороны" 
+	android:id="@+id/CheckBoxBothSide" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content"
+	android:checked="true">
+</CheckBox>
+<LinearLayout
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:orientation="horizontal">  
+	<TextView 
+		android:text="Дата начала" 
+		android:id="@+id/TextView03" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content">
+	</TextView>
+	<Button 
+		android:text="" 
+		android:id="@+id/DateFromButton" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+	</Button>
+</LinearLayout>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal">  
+	<TextView 
+		android:text="Дата окончания" 
+		android:id="@+id/TextView04" 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+	</TextView>
+	<Button 
+		android:text="" 
+		android:id="@+id/DateToButton" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+	</Button>
+</LinearLayout>
+<TextView 
+	android:text="Источники" 
+	android:id="@+id/TextView05" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content">
+</TextView>
+<CheckBox 
+	android:text="Яндекс" 
+	android:id="@+id/CheckBoxYandex" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content"
+	android:checked="true">
+</CheckBox>
+<CheckBox 
+	android:text="Туту" 
+	android:id="@+id/CheckBoxTutu" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content"
+	android:checked="false">
+</CheckBox>
+<Button 
+	android:text="Обновить" 
+	android:id="@+id/UpdateButton" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content" 
+	android:layout_gravity="center">
+</Button>
+</LinearLayout>
+</ScrollView>
+</LinearLayout>

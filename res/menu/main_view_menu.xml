@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+<item 
+	android:id="@+id/mainview_menu_clear" 
+ 	android:title="Очистить">
+</item>
+<item 
+	android:id="@+id/mainview_menu_update" 
+ 	android:title="Обновить">
+</item>
+<item 
+	android:id="@+id/mainview_menu_clear_all" 
+ 	android:title="Очистить все">
+</item>
+<item 
+	android:id="@+id/mainview_menu_stations" 
+ 	android:title="Станции">
+</item>
+<item 
+	android:id="@+id/mainview_menu_regexp" 
+ 	android:title="Шаблоны">
+</item>
+</menu>

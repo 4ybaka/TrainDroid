@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="incorrect_input_data">Некорректные входные данные</string>
+    <string name="no_data">Нет данных</string>
+    <string name="app_name">TrainDroid 2</string>
+    <string name="transfer_station_key">Station</string>
+    <string name="transfer_date_key">Date</string>
+    <string name="transfer_from_key">From</string>
+    <string name="transfer_to_key">To</string>
+    <string name="data_file_name">TimeTablesData</string>
+</resources>
