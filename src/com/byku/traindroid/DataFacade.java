@@ -70,20 +70,23 @@ public final class DataFacade
 			_stations.add(station);
 			station = new Station("Москва", "79310", "Москва");
 			_stations.add(station);
-			station = new Station("Подсолнечная", "81310", "Подсолнечная");
-			_stations.add(station);
-			station = new Station("Поваровка", "81010", "Поваровка");
-			_stations.add(station);
-			station = new Station("Фроловское", "81710", "Фроловское");
-			_stations.add(station);
-			station = new Station("Поварово", "81110", "Поварово");
-			_stations.add(station);
-			station = new Station("Рижская", "79410", "Рижская");
-			_stations.add(station);
 			station = new Station("Петровско-Разумовское", "79610", "Петровско-Разумовское");
 			_stations.add(station);
-			station = new Station("Останкино", "79510", "Останкино");
-			_stations.add(station);
+			
+//			station = new Station("Подсолнечная", "81310", "Подсолнечная");
+//			_stations.add(station);
+//			station = new Station("Поваровка", "81010", "Поваровка");
+//			_stations.add(station);
+//			station = new Station("Фроловское", "81710", "Фроловское");
+//			_stations.add(station);
+//			station = new Station("Поварово", "81110", "Поварово");
+//			_stations.add(station);
+//			station = new Station("Рижская", "79410", "Рижская");
+//			_stations.add(station);
+//			station = new Station("Останкино", "79510", "Останкино");
+//			_stations.add(station);
+//			station = new Station("Левобережная", "79910", "Левобережная");
+//			_stations.add(station);
 		}
 	}
 	
