@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (C) 2010 Dmitriy Nesterov
+ * Copyright (C) 2010-2011 Dmitriy Nesterov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
