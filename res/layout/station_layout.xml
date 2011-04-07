@@ -40,19 +40,26 @@
 	android:layout_width="fill_parent" 
 	android:layout_height="wrap_content">
 </EditText>
-<Button 
-	android:text="Сохранить" 
-	android:id="@+id/StationViewSaveButton" 
-	android:layout_width="fill_parent" 
-	android:layout_height="wrap_content" 
-	android:layout_gravity="center">
-</Button>
-<Button 
-	android:text="Удалить" 
-	android:id="@+id/StationViewDeleteButton" 
-	android:layout_width="fill_parent" 
-	android:layout_height="wrap_content" 
-	android:layout_gravity="center"
-	android:enabled="false">
-</Button>
+<LinearLayout
+   	android:layout_height="wrap_content"
+   	android:id="@+id/linearLayout1"
+   	android:layout_width="fill_parent">
+	<Button 
+		android:text="Сохранить" 
+		android:id="@+id/StationViewSaveButton" 
+		android:layout_width="0dip" 
+		android:layout_height="wrap_content" 
+		android:layout_gravity="center"
+		android:layout_weight="1">
+	</Button>
+	<Button 
+		android:text="Удалить" 
+		android:id="@+id/StationViewDeleteButton" 
+		android:layout_width="0dip" 
+		android:layout_height="wrap_content" 
+		android:layout_gravity="center"
+		android:enabled="false"
+		android:layout_weight="1">
+	</Button>
+</LinearLayout>
 </LinearLayout>

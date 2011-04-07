@@ -38,9 +38,7 @@ public final class MainView extends ListActivity {
 	
 	private final String DATE_KEY = "DateKey";
 	private Boolean _save = false;
-	
-    //TODO: Override onStart,onStop, onDestroy etc.
-	
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +55,7 @@ public final class MainView extends ListActivity {
         
         if (_save)
         {
-			//TODO: Move save actions to UpdateView or remove save actions from StationView (make equally).
+			//TODO: [Code] Move save actions to UpdateView or remove save actions from StationView (make equally).
         	updateTimeTable(true);
         	_save = false;
         }
@@ -78,7 +76,7 @@ public final class MainView extends ListActivity {
 
         		Intent updateView = new Intent(MainView.this, UpdateView.class);               
                 startActivity(updateView);
-        		
+        		// TODO: [Code] Rewrite with startActivityForResult and update TT in some cases.
         		return true;
 
         	case R.id.mainview_menu_stations:

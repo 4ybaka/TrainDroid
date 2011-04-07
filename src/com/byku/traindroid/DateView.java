@@ -63,9 +63,9 @@ public final class DateView extends ListActivity {
     @Override
     protected void onListItemClick(ListView listView, View view, int position, long id) 
     {
-    	//TODO: Devise another way of getting data to transfer.
+    	//TODO: [Code] Save items in separate collection in fillView and get item by 'position'.
     	String[] stations = ((TextView)view).getText().toString().split(STATION_SEPARATOR);
-    	
+
     	Bundle bundle = new Bundle();
     	bundle.putString(getString(R.string.transfer_date_key), _date);
 

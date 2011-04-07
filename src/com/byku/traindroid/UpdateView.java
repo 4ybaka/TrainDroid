@@ -122,7 +122,7 @@ public class UpdateView extends Activity {
 
 			checkBox = (CheckBox)findViewById(R.id.CheckBoxBothSide);
 			Boolean bothSide = checkBox.isChecked();
-			
+			// TODO: [UI] Use progress dialog to show progress.
     		String result = DataFacade.UpdateTimeTable(stationFrom, stationTo, daysFrom, daysCount, updateYandex, updateTutu);
     		if (bothSide)
     		{
