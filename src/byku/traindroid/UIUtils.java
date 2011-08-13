@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-package com.byku.traindroid;
+package byku.traindroid;
 
 import android.content.Context;
 import android.widget.Toast;
