@@ -1,0 +1,13 @@
+R.java
+
+*.class
+*.so
+*.o
+*.exe
+*.apk
+
+*.log
+
+out/
+.idea/
+bin/
