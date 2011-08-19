@@ -42,6 +42,9 @@ public class UpdateView extends Activity {
 	
 	private static final int DATE_PICKER_DIALOG_ID_DATE_FROM = 0;
 	private static final int DATE_PICKER_DIALOG_ID_DATE_TO = 1;
+
+    private DatePickerDialog _datePickerDialogFrom;
+    private DatePickerDialog _datePickerDialogTo;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +58,7 @@ public class UpdateView extends Activity {
 		_monthTo = calendar.get(Calendar.MONTH);
 		_yearFrom = calendar.get(Calendar.YEAR);
 		_yearTo = calendar.get(Calendar.YEAR);
-		updateDates();
+		updateDates(true);
         
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.autocomplete_list_item, DataFacade.GetStationNames());
         
@@ -146,9 +149,11 @@ public class UpdateView extends Activity {
     protected Dialog onCreateDialog(int id) {
         switch (id) {
         case DATE_PICKER_DIALOG_ID_DATE_FROM:
-            return new DatePickerDialog(this, DateFromListener, _yearFrom, _monthFrom, _dayFrom);
+            _datePickerDialogFrom = new DatePickerDialog(this, DateFromListener, _yearFrom, _monthFrom, _dayFrom);
+            return _datePickerDialogFrom;
         case DATE_PICKER_DIALOG_ID_DATE_TO:
-            return new DatePickerDialog(this, DateToListener, _yearTo, _monthTo, _dayTo);
+            _datePickerDialogTo = new DatePickerDialog(this, DateToListener, _yearTo, _monthTo, _dayTo);
+            return _datePickerDialogTo;
         }
         return null;
     }
@@ -161,7 +166,7 @@ public class UpdateView extends Activity {
                 _yearFrom = year;
                 _monthFrom = monthOfYear;
                 _dayFrom = dayOfMonth;
-                updateDates();
+                updateDates(true);
             }
         };
 
@@ -172,16 +177,51 @@ public class UpdateView extends Activity {
                 _yearTo = year;
                 _monthTo = monthOfYear;
                 _dayTo = dayOfMonth;
-                updateDates();
+                updateDates(false);
             }
         };
         
-    private void updateDates()
+    private void updateDates(boolean dateFromSet)
     {
+        syncDates(dateFromSet);
     	String date = Utils.DateToString(_dayFrom, _monthFrom + 1, _yearFrom);
     	((Button)findViewById(R.id.DateFromButton)).setText(date);
     	
     	date = Utils.DateToString(_dayTo, _monthTo + 1, _yearTo);
     	((Button)findViewById(R.id.DateToButton)).setText(date);
+    }
+
+    /**
+     * Sync date from and date to.
+     */
+    private void syncDates(boolean dateFromSet)
+    {
+        Date dateFrom = new Date(_yearFrom, _monthFrom, _dayFrom);
+        Date dateTo = new Date(_yearTo, _monthTo, _dayTo);
+
+        if (dateFrom.after(dateTo))
+        {
+            if(dateFromSet)
+            {
+                _yearTo = _yearFrom;
+                _monthTo = _monthFrom;
+                _dayTo = _dayFrom;
+            }
+            else
+            {
+                _yearFrom = _yearTo;
+                _monthFrom = _monthTo;
+                _dayFrom = _dayTo;
+            }
+        }
+
+        if (_datePickerDialogFrom != null)
+        {
+            _datePickerDialogFrom.updateDate(_yearFrom, _monthFrom, _dayFrom);
+        }
+        if (_datePickerDialogTo != null)
+        {
+            _datePickerDialogTo.updateDate(_yearFrom, _monthFrom, _dayFrom);
+        }
     }
 }
