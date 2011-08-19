@@ -10,4 +10,5 @@
     <string name="data_file_name">TimeTablesData</string>
 
     <string name="settings_not_found">Файл с настройками не найден. Загружены настройки по умолчанию.</string>
+    <string name="loading_timetable">Загрузка расписания...</string>
 </resources>

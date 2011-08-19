@@ -23,6 +23,7 @@ import java.util.Date;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -45,11 +46,17 @@ public class UpdateView extends Activity {
 
     private DatePickerDialog _datePickerDialogFrom;
     private DatePickerDialog _datePickerDialogTo;
+    private AsyncTimeTableUpdater _asyncUpdater;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         	
         setContentView(R.layout.update_view_layout);
+
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.loading_timetable));
+
+        _asyncUpdater = new AsyncTimeTableUpdater(progressDialog);
         
 		Calendar calendar = Calendar.getInstance();
 		_dayFrom = calendar.get(Calendar.DAY_OF_MONTH);
@@ -125,19 +132,8 @@ public class UpdateView extends Activity {
 
 			checkBox = (CheckBox)findViewById(R.id.CheckBoxBothSide);
 			Boolean bothSide = checkBox.isChecked();
-			// TODO: [UI] Use progress dialog to show progress.
-    		String result = DataFacade.UpdateTimeTable(stationFrom, stationTo, daysFrom, daysCount, updateYandex, updateTutu);
-    		if (bothSide)
-    		{
-    			result += DataFacade.UpdateTimeTable(stationTo, stationFrom, daysFrom, daysCount, updateYandex, updateTutu);
-    		}
-    		
-   			if (result != null && !result.equals(""))
-   			{
-   				UIUtils.ShowToast(this, result);
-   			}
-   			   			
-   			finish();
+
+            _asyncUpdater.execute(stationFrom, stationTo, daysFrom, daysCount, updateYandex, updateTutu, bothSide, this);
 		}
 		catch(Exception e)
 		{
