@@ -8,4 +8,6 @@
     <string name="transfer_from_key">From</string>
     <string name="transfer_to_key">To</string>
     <string name="data_file_name">TimeTablesData</string>
+
+    <string name="settings_not_found">Файл с настройками не найден. Загружены настройки по умолчанию.</string>
 </resources>

@@ -44,8 +44,7 @@ public final class MainView extends ListActivity {
         super.onCreate(savedInstanceState);
         
         updateTimeTable(false);
-        DataFacade.Init();
-		
+
         setContentView(R.layout.textlist);
     }
     
@@ -136,15 +135,17 @@ public final class MainView extends ListActivity {
 			}
 			else
 			{
-				// TODO: Add check that file not exists. That check not work.
-//				File file = new File(getString(R.string.data_file_name));
+				if (fileList().length == 0)
+				{
+                    DataFacade.Init();
+                    updateTimeTable(true);
+                    UIUtils.ShowToast(this, getString(R.string.settings_not_found));
+                    return;
+                }
 
-//				if (file.exists())
-//				{
-					FileInputStream stream = openFileInput(getString(R.string.data_file_name));
-					DataFacade.Deserialize(stream);
-					stream.close();
-//				}
+                FileInputStream stream = openFileInput(getString(R.string.data_file_name));
+                DataFacade.Deserialize(stream);
+                stream.close();
 			}
 		} 
 		catch (Exception e) 
