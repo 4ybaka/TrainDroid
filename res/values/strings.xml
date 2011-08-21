@@ -11,4 +11,8 @@
 
     <string name="settings_not_found">Файл с настройками не найден. Загружены настройки по умолчанию.</string>
     <string name="loading_timetable">Загрузка расписания...</string>
+
+    <string name="changelog_full_title">Изменения</string>
+    <string name="changelog_title">Последние изменения</string>
+    <string name="changelog_ok_button">OK</string>
 </resources>

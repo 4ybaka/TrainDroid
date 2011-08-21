@@ -42,6 +42,12 @@ public final class MainView extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ChangeLog changeLog = new ChangeLog(this);
+        if (changeLog.firstRun())
+        {
+            changeLog.getFullLogDialog().show();
+        }
         
         updateTimeTable(false);
 

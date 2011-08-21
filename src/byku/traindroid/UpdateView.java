@@ -50,7 +50,7 @@ public class UpdateView extends Activity {
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        	
+
         setContentView(R.layout.update_view_layout);
 
         ProgressDialog progressDialog = new ProgressDialog(this);
