@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
-public class AsyncTimeTableUpdater extends AsyncTask<Object, Void, Void>
+public class AsyncTimeTableUpdater extends AsyncTask<Object, Void, String>
 {
     private ProgressDialog _dialog;
     private Activity _activity;
@@ -15,7 +15,7 @@ public class AsyncTimeTableUpdater extends AsyncTask<Object, Void, Void>
     }
 
     @Override
-    protected Void doInBackground(Object... objects)
+    protected String doInBackground(Object... objects)
     {
         _activity = (Activity) objects[7];
 
@@ -27,11 +27,7 @@ public class AsyncTimeTableUpdater extends AsyncTask<Object, Void, Void>
                     (Integer)objects[3], (Boolean)objects[4], (Boolean)objects[5]);
         }
 
-        if (result != null && !result.equals(""))
-        {
-            UIUtils.ShowToast(_activity, result);
-        }
-        return null;
+        return result;
     }
 
     @Override
@@ -41,8 +37,13 @@ public class AsyncTimeTableUpdater extends AsyncTask<Object, Void, Void>
     }
 
     @Override
-    protected void onPostExecute(Void result)
+    protected void onPostExecute(String result)
     {
+        if (result != null && !result.equals(""))
+        {
+            UIUtils.ShowToast(_activity, result);
+        }
+
         _dialog.dismiss();
         _activity.finish();
     }

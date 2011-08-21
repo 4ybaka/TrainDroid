@@ -2,7 +2,7 @@
 <resources>
     <string name="incorrect_input_data">Некорректные входные данные</string>
     <string name="no_data">Нет данных</string>
-    <string name="app_name">TrainDroid 2</string>
+    <string name="app_name">TrainDroid</string>
     <string name="transfer_station_key">Station</string>
     <string name="transfer_date_key">Date</string>
     <string name="transfer_from_key">From</string>
