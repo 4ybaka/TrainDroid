@@ -17,12 +17,16 @@
 
 package byku.traindroid;
 
-import java.io.FileOutputStream;
+import java.io.*;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -47,6 +51,13 @@ public final class StationView extends Activity
         button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
 				saveStation();
+			}
+		});
+
+        button = (Button)findViewById(R.id.StationViewHelpButton);
+        button.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View arg0) {
+				showHelpDialog();
 			}
 		});
         
@@ -115,6 +126,55 @@ public final class StationView extends Activity
 		
 		finish();
 	}
+
+    /**
+     * Shows help dialog.
+     */
+    private void showHelpDialog()
+    {
+        WebView webView = new WebView(this);
+        webView.setBackgroundColor(0);
+        webView.loadDataWithBaseURL(null, getHelpMessage(), "text/html", "utf-8", null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getResources().getString(R.string.help_dialog_title))
+                .setView(webView)
+                .setCancelable(false)
+                .setPositiveButton(
+                        getResources().getString(R.string.changelog_ok_button),
+                        new DialogInterface.OnClickListener()
+                        {
+                            public void onClick(DialogInterface dialog, int id)
+                            {
+                                dialog.cancel();
+                            }
+                        });
+        builder.create().show();
+    }
+
+    /**
+     * Gets help message from resources.
+     */
+    private String getHelpMessage()
+    {
+        StringBuilder message = new StringBuilder();
+        try
+        {
+            InputStream stream = getResources().openRawResource(R.raw.help_stations);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(stream));
+            String line;
+            while((line = bufferedReader.readLine()) != null)
+            {
+                message.append(line);
+            }
+        }
+        catch(IOException exception)
+        {
+            Log.e(Utils.TAG, "Cannot read file with help.", exception);
+            message.append(getString(R.string.help_file_not_found));
+        }
+        return message.toString();
+    }
 	
 	private void fillView()
 	{

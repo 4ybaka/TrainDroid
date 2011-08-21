@@ -40,6 +40,12 @@
 	android:layout_width="fill_parent" 
 	android:layout_height="wrap_content">
 </EditText>
+<Button
+    android:text="Где взять ID?"
+    android:id="@+id/StationViewHelpButton"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+</Button>
 <LinearLayout
    	android:layout_height="wrap_content"
    	android:id="@+id/linearLayout1"

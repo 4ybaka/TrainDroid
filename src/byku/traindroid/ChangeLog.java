@@ -43,16 +43,16 @@ public class ChangeLog {
 
         // get version numbers
         this.lastVersion = sp.getString(VERSION_KEY, "");
-        Log.d(TAG, "lastVersion: " + lastVersion);
+        Log.d(Utils.TAG, "lastVersion: " + lastVersion);
         try {
 			this.thisVersion = context.getPackageManager().getPackageInfo(
 					context.getPackageName(), 0).versionName;
 		} catch (NameNotFoundException e) {
 			this.thisVersion = "?";
-			Log.e(TAG, "could not get version name from manifest!");
+			Log.e(Utils.TAG, "could not get version name from manifest!");
 			e.printStackTrace();
 		}
-        Log.d(TAG, "appVersion: " + this.thisVersion);
+        Log.d(Utils.TAG, "appVersion: " + this.thisVersion);
         
         // save new version number to preferences
         SharedPreferences.Editor editor = sp.edit();
@@ -250,6 +250,4 @@ public class ChangeLog {
         }
         this.listMode = Listmode.NONE;
     }
-
-    private static final String TAG = "ChangeLog";
 }

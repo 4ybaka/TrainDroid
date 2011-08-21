@@ -11,6 +11,8 @@
 
     <string name="settings_not_found">Файл с настройками не найден. Загружены настройки по умолчанию.</string>
     <string name="loading_timetable">Загрузка расписания...</string>
+    <string name="help_dialog_title">Получение ID станции</string>
+    <string name="help_file_not_found">Невозможно прочитать файл с описанием.</string>
 
     <string name="changelog_full_title">Изменения</string>
     <string name="changelog_title">Последние изменения</string>

@@ -25,6 +25,8 @@ import java.util.Date;
  */
 public final class Utils 
 {
+    public static final String TAG = "TrainDroid";
+
 	/*
 	 * Converts date to string.
 	 */

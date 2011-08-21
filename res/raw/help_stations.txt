@@ -1,0 +1,9 @@
+<html>
+  <body style="color:#F0F0F0">
+Для <font color=#C0F0C0>Яндекса</font> ID станции это обычно само название станции.<br>
+Для <font color=#C0F0C0>Туту</font> немного сложнее. Нужно зайти на сайт, выбрать интересующую станцию (или выбрать 2 нужные станции),
+и получить url такого "http://tutu.ru/station.php?nnst=<font color=#CC6600>201</font>" или такого
+ "http://tutu.ru/rasp.php?<font color=#CC6600>st1=20000</font>&<font color=#CC6600>st2=201</font>" вида.
+В первом случае сразу видно ID, а во втором просто нужно запомнить, что <font color=#CC6600>st1</font> - станция отправления, а <font color=#CC6600>st2</font> - назначения.
+  </body>
+</html>
