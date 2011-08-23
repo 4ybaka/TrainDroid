@@ -21,6 +21,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -265,7 +266,7 @@ public final class DataFacade
 	{
 		ArrayList<Pair<String, String>> times = new ArrayList<Pair<String, String>>();
 		HttpClient client = new DefaultHttpClient();
-		HttpGet request = new HttpGet(url);
+		HttpGet request = new HttpGet(URLEncoder.encode(url));
 		HttpResponse response;
 				
 		try 
