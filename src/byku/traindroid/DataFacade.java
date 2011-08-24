@@ -266,7 +266,7 @@ public final class DataFacade
 	{
 		ArrayList<Pair<String, String>> times = new ArrayList<Pair<String, String>>();
 		HttpClient client = new DefaultHttpClient();
-		HttpGet request = new HttpGet(URLEncoder.encode(url));
+		HttpGet request = new HttpGet(url.replaceAll(" ", "+"));
 		HttpResponse response;
 				
 		try 
