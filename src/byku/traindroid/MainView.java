@@ -17,11 +17,6 @@
 
 package byku.traindroid;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -33,6 +28,11 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public final class MainView extends ListActivity {
 	
@@ -48,7 +48,7 @@ public final class MainView extends ListActivity {
         {
             changeLog.getFullLogDialog().show();
         }
-        
+
         updateTimeTable(false);
 
         setContentView(R.layout.textlist);

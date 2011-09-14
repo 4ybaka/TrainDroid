@@ -17,21 +17,20 @@
 
 package byku.traindroid;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 
 /*
  * Static class that processes saved data. 
@@ -48,7 +47,7 @@ public final class DataFacade
 	 * Sources addresses.
 	 */
 	private static final String TUTU_ADRESS = "http://www.tutu.ru/rasp.php?st1=%s&st2=%s&date=%s&print=yes";
-	private static final String YANDEX_ADRESS = "http://www.rasp.yandex.ru/suburban_search?cityFrom=%s&cityTo=%s&dateForward=%s";
+	private static final String YANDEX_ADRESS = "http://www.rasp.yandex.ru/search/?from%s=%s&to%s=%s&dateForward=%s";
 	
 	/*
 	 * Regular expressions.
@@ -226,7 +225,9 @@ public final class DataFacade
 
 			if (updateYandex)
 			{
-				String url = String.format(YANDEX_ADRESS, from.getYandexId(), to.getYandexId(), date);
+                String fromType = getYandexStationType(from.getYandexId());
+                String toType = getYandexStationType(to.getYandexId());
+				String url = String.format(YANDEX_ADRESS, fromType, from.getYandexId(), toType, to.getYandexId(), date);
 				String message = processSource(url, from, to, date, YANDEX_REGEXP, "yandex");
 				result += (message != "") ? "\n" + message : "";
 			}
@@ -356,4 +357,13 @@ public final class DataFacade
 			}
 		}
 	}
+
+    private static String getYandexStationType(String station)
+    {
+        if (station.charAt(0) == 's' || station.charAt(0) == 'S')
+        {
+            return "Id";
+        }
+        return "Name";
+    }
 }
