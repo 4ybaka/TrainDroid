@@ -218,18 +218,18 @@ public final class DataFacade
 			
 			if (updateTutu)
 			{
-				String url = String.format(TUTU_ADRESS, from.getTutuId(), to.getTutuId(), date);
-				String message = processSource(url, from, to, date, TUTU_REGEXP, "tutu");
-				result += (message != "") ? "\n" + message : "";
+                String url = String.format(TUTU_ADRESS, from.getTutuId(), to.getTutuId(), date);
+                String message = processSource(url, from, to, date, TUTU_REGEXP, "tutu");
+                result += (message != "") ? "\n" + message : "";
 			}
 
 			if (updateYandex)
 			{
                 String fromType = getYandexStationType(from.getYandexId());
                 String toType = getYandexStationType(to.getYandexId());
-				String url = String.format(YANDEX_ADRESS, fromType, from.getYandexId(), toType, to.getYandexId(), date);
-				String message = processSource(url, from, to, date, YANDEX_REGEXP, "yandex");
-				result += (message != "") ? "\n" + message : "";
+                String url = String.format(YANDEX_ADRESS, fromType, from.getYandexId(), toType, to.getYandexId(), date);
+                String message = processSource(url, from, to, date, YANDEX_REGEXP, "yandex");
+                result += (message != "") ? "\n" + message : "";
 			}
 			
 			++day;

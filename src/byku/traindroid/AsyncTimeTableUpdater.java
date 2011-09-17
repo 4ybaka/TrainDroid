@@ -18,13 +18,31 @@ public class AsyncTimeTableUpdater extends AsyncTask<Object, Void, String>
     protected String doInBackground(Object... objects)
     {
         _activity = (Activity) objects[7];
+        String result = "";
 
-        String result = DataFacade.UpdateTimeTable((Station)objects[0], (Station)objects[1], (Integer)objects[2],
-                (Integer)objects[3], (Boolean)objects[4], (Boolean)objects[5]);
-        if ((Boolean)objects[6])
+        Station from = (Station)objects[0];
+        Station to = (Station)objects[1];
+        boolean updateYandex = (Boolean)objects[4];
+        boolean updateTutu = (Boolean)objects[5];
+
+        if (updateTutu && (isStringEmpty(from.getTutuId()) || isStringEmpty(to.getTutuId())))
         {
-            result += DataFacade.UpdateTimeTable((Station)objects[1], (Station)objects[0], (Integer)objects[2],
-                    (Integer)objects[3], (Boolean)objects[4], (Boolean)objects[5]);
+            result += "\nНе указан туту Id для одной из станций.";
+        }
+        if (updateYandex && (isStringEmpty(from.getYandexId()) || isStringEmpty(to.getYandexId())))
+        {
+            result += "\nНе указан яндекс Id для одной из станций.";
+        }
+
+        if (result.length() == 0)
+        {
+            result += DataFacade.UpdateTimeTable(from, to, (Integer)objects[2],
+                    (Integer)objects[3], updateYandex, updateTutu);
+            if ((Boolean)objects[6])
+            {
+                result += DataFacade.UpdateTimeTable(to, from, (Integer)objects[2],
+                        (Integer)objects[3], updateYandex, updateTutu);
+            }
         }
 
         return result;
@@ -46,5 +64,10 @@ public class AsyncTimeTableUpdater extends AsyncTask<Object, Void, String>
 
         _dialog.dismiss();
         _activity.finish();
+    }
+
+    private static boolean isStringEmpty(String string)
+    {
+        return string == null || string.length() == 0;
     }
 }
