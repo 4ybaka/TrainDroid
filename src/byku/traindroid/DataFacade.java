@@ -209,10 +209,16 @@ public final class DataFacade
 		
 		for (int i = 0; i < daysCount; ++i)
 		{
+			// Yes, it should be something like date.addDays(1) but it already tested and I'm lazy.
 			if (day > calendar.getActualMaximum(Calendar.DAY_OF_MONTH))
 			{
 				day -= calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 				++month;
+				if (month > 12)
+				{
+					month = 1;
+					++year;
+				}
 			}
 			String date = Utils.DateToString(day, month, year);
 			

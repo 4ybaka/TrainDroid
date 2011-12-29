@@ -64,30 +64,7 @@ public final class Utils
 	 */
 	public static long DatesDifferenceInDays(Date dateFrom, Date dateTo)
 	{
-		Calendar calendar = Calendar.getInstance();
-		int days = 0;
-		
-		// TODO: Leap year is not take account.
-		days += (dateTo.getYear() - dateFrom.getYear()) * 365;
-		for (int i = dateFrom.getMonth(); i < dateTo.getMonth() - 1; ++i)
-		{
-			//TODO: Not tested.
-			calendar.set(Calendar.MONTH, i);			
-			days += calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-		}
-		
-		if (dateTo.getMonth() == dateFrom.getMonth())
-		{
-			days += (dateTo.getDate() - dateFrom.getDate());
-		}
-		else
-		{
-			calendar.set(Calendar.MONTH, dateFrom.getMonth());			
-			days += calendar.getActualMaximum(Calendar.DAY_OF_MONTH) - dateFrom.getDate();
-			days += dateTo.getDate();
-		}
-		
-		return days;
+		return (dateTo.getTime() - dateFrom.getTime()) / (1000 * 60 * 60 * 24);
 	}
 
 	public static Date Today()
